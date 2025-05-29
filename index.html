@@ -3,19 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
     <header>
-      <h1><img src="images/logo.svg" alt="" /></h1>
+      <h1>
+        <img src="images/logo.svg" alt="logo" />
+      </h1>
     </header>
     <main>
-      <section>
+      <section class="left">
         <aside>
           <label for="billCost">Bill</label><br />
           <div>
-            <img src="/images/icon-person.svg" alt="" />
-            <input type="text" name="billCost" id="billCost" />
+            <img src="/images/icon-dollar.svg" alt="dollar" />
+            <input type="text" name="billCost" id="billCost" placeholder="0" />
           </div>
         </aside>
         <aside>
@@ -25,27 +28,27 @@
           <button>15%</button>
           <button>20%</button>
           <button>25%</button>
-          <input type="number" id="tip" />
+          <input type="number" id="tip" placeholder="Custom" />
         </aside>
         <aside>
-          <div>
+          <div class="peopleNumber">
             <label for="people">Number of people</label><br />
-            <p>Can't be zero</p>
+            <!--Tu ma być <p>-->
           </div>
           <div>
             <img src="/images/icon-person.svg" alt="" />
-            <input type="text" name="people" id="people" />
+            <input type="text" name="people" id="people" placeholder="0" />
           </div>
         </aside>
       </section>
-      <section>
+      <section class="right">
         <aside>
           <div>
             <p>Tip Amount</p>
             <p>/person</p>
           </div>
           <div>
-            <p>$0.00</p>
+            <p class="dolar">$0.00</p>
           </div>
         </aside>
         <aside>
@@ -54,11 +57,11 @@
             <p>/person</p>
           </div>
           <div>
-            <p>$0.00</p>
+            <p class="dolar">$0.00</p>
           </div>
         </aside>
         <aside>
-          <button>Reset</button>
+          <button>RESET</button>
         </aside>
       </section>
     </main>
