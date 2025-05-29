@@ -23,11 +23,11 @@
         </aside>
         <aside>
           <p>Select Tip %</p>
-          <button>5%</button>
-          <button>10%</button>
-          <button>15%</button>
-          <button>20%</button>
-          <button>25%</button>
+          <button value="5">5%</button>
+          <button value="10">10%</button>
+          <button value="15">15%</button>
+          <button value="20">20%</button>
+          <button value="25">25%</button>
           <input type="number" id="tip" placeholder="Custom" />
         </aside>
         <aside>
@@ -48,7 +48,7 @@
             <p>/person</p>
           </div>
           <div>
-            <p class="dolar">$0.00</p>
+            <p class="dolar" id="tipAmount">$0.00</p>
           </div>
         </aside>
         <aside>
@@ -57,13 +57,14 @@
             <p>/person</p>
           </div>
           <div>
-            <p class="dolar">$0.00</p>
+            <p class="dolar" id="total">$0.00</p>
           </div>
         </aside>
         <aside>
-          <button>RESET</button>
+          <button id="reset">RESET</button>
         </aside>
       </section>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>

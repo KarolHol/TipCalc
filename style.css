@@ -79,7 +79,7 @@ input::-webkit-inner-spin-button {
 }
 input {
   border: 2px solid #ffffff !important;
-  outline: #26c0ab;
+  outline: none;
 }
 
 input:focus {
