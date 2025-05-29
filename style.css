@@ -60,7 +60,8 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.left input[type="text"] {
+#people,
+#billCost {
   -moz-appearance: textfield;
   width: 100%;
   padding: 10px;
@@ -104,10 +105,13 @@ button {
   background-color: #26c0ab;
   color: #00494c;
 }
-
-.left input[type="number"]::placeholder {
-  text-align: center;
+#people::placeholder,
+#billCost::placeholder {
+  text-align: right;
   color: #7f9c9f;
+}
+#tip::placeholder {
+  text-align: center;
 }
 
 .right {
@@ -162,4 +166,50 @@ button {
 .peopleNumber {
   display: flex;
   justify-content: space-between;
+}
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    width: 90%;
+    padding: 20px;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    padding: 0;
+  }
+
+  .left button,
+  .left button ~ input {
+    width: 45%;
+    font-size: 16px;
+  }
+
+  .right {
+    margin-top: 20px;
+    padding: 20px;
+  }
+
+  .right aside p:first-child {
+    font-size: 20px;
+  }
+
+  .dolar {
+    font-size: 24px !important;
+  }
+}
+@media (max-width: 375px) {
+  .left label,
+  .left p {
+    font-size: 12px;
+  }
+
+  .right aside p:first-child {
+    font-size: 18px;
+  }
+
+  .dolar {
+    font-size: 20px !important;
+  }
 }

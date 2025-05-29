@@ -15,20 +15,17 @@ let isReset = false;
 customTip.addEventListener("input", () => {
   tip = customTip.value;
   Total();
-  console.log(tip);
 });
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     tip = button.value;
     customTip.value = "";
     Total();
-    console.log(tip);
   });
 });
 billInput.addEventListener("input", () => {
   bill = document.getElementById("billCost").value;
   Total();
-  console.log(bill);
 });
 people.addEventListener("input", () => {
   peopleCount = document.getElementById("people").value;
@@ -37,7 +34,6 @@ people.addEventListener("input", () => {
     p.textContent = "Can't be a zero";
     toValidation.appendChild(p);
     people.setAttribute("style", "border: 2px solid red !important;");
-    console.log(people);
     isZero = true;
   } else if (isZero) {
     isZero = false;
@@ -45,30 +41,26 @@ people.addEventListener("input", () => {
     toValidation.removeChild(p);
   }
   Total();
-  console.log(peopleCount);
 });
 function Total() {
   if (bill != 0 && peopleCount != 0 && tip != 0) {
-    let tipCost = ((bill / peopleCount) * tip) / 10;
-    let totalCost = (bill / peopleCount) * (1 + tip / 10);
-    console.log(tipAmount, totalCost);
-
+    let tipCost = (bill / peopleCount) * (tip / 100);
+    let totalCost = (bill / peopleCount) * (1 + tip / 100);
     tipAmount.textContent = "$" + tipCost.toFixed(2);
     total.textContent = "$" + totalCost.toFixed(2);
-    console.log(totalCost);
   } else if (bill != 0 && peopleCount != 0) {
     totalCost = bill / peopleCount;
     total.textContent = "$" + totalCost.toFixed(2);
   }
-  reset.addEventListener("click", () => {
-    bill = 0;
-    peopleCount = 0;
-    tip = 0;
-    isZero = false;
-    billInput.value = "";
-    customTip.value = "";
-    people.value = "";
-    total.textContent = "$0.00";
-    tipAmount.textContent = "$0.00";
-  });
 }
+reset.addEventListener("click", () => {
+  bill = 0;
+  peopleCount = 0;
+  tip = 0;
+  isZero = false;
+  billInput.value = "";
+  customTip.value = "";
+  people.value = "";
+  total.textContent = "$0.00";
+  tipAmount.textContent = "$0.00";
+});
