@@ -5,13 +5,16 @@ const customTip = document.getElementById("tip");
 const tipAmount = document.getElementById("tipAmount");
 const total = document.getElementById("total");
 const toValidation = document.querySelector(".peopleNumber");
+const toValidation2 = document.querySelector(".bill");
 const p = document.createElement("p");
 const reset = document.getElementById("reset");
 let bill = 0;
 let peopleCount = 0;
 let tip = 0;
-let isZero = false;
+let isZero1 = false;
+let isZero2 = false;
 let isReset = false;
+
 customTip.addEventListener("input", () => {
   tip = customTip.value;
   Total();
@@ -25,18 +28,36 @@ buttons.forEach((button) => {
 });
 billInput.addEventListener("input", () => {
   bill = document.getElementById("billCost").value;
+  if (bill < 0) {
+    p.style.color = "red";
+    p.textContent = "Can't be less than zero";
+    toValidation2.appendChild(p);
+    billInput.setAttribute("style", "border: 2px solid red !important;");
+    isZero2 = true;
+  } else if (isZero2) {
+    isZero2 = false;
+    billInput.removeAttribute("style", "border: 2px solid red !important;");
+    toValidation2.removeChild(p);
+  }
   Total();
 });
 people.addEventListener("input", () => {
   peopleCount = document.getElementById("people").value;
-  if (peopleCount == 0 && peopleCount != "") {
+  if (peopleCount < 0) {
+    p.style.color = "red";
+    p.textContent = "Can't be less than zero";
+    toValidation.appendChild(p);
+    people.setAttribute("style", "border: 2px solid red !important;");
+    toValidation.appendChild(p);
+    isZero1 = true;
+  } else if (peopleCount == 0 && peopleCount != "") {
     p.style.color = "red";
     p.textContent = "Can't be a zero";
     toValidation.appendChild(p);
     people.setAttribute("style", "border: 2px solid red !important;");
-    isZero = true;
-  } else if (isZero) {
-    isZero = false;
+    isZero1 = true;
+  } else if (isZero1) {
+    isZero1 = false;
     people.removeAttribute("style", "border: 2px solid red !important;");
     toValidation.removeChild(p);
   }
@@ -57,7 +78,7 @@ reset.addEventListener("click", () => {
   bill = 0;
   peopleCount = 0;
   tip = 0;
-  isZero = false;
+  isZero1 = false;
   billInput.value = "";
   customTip.value = "";
   people.value = "";

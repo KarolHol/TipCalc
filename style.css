@@ -163,7 +163,8 @@ button {
   color: #26c0ab !important;
   font-size: 30px !important;
 }
-.peopleNumber {
+.peopleNumber,
+.bill {
   display: flex;
   justify-content: space-between;
 }
